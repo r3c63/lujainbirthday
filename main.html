@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Lujain! 🎀</title>
+
+  <!-- Cute fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink-1:#ffedf4;
+      --pink-2:#ffc7de;
+      --pink-3:#ff9ec2;
+      --pink-4:#ff79ab;
+      --rose:#f65d98;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(255, 121, 171, 0.25);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, var(--pink-1), var(--pink-2)) fixed,
+                  radial-gradient(1200px 600px at 90% 80%, #fff0f6, var(--pink-1)) fixed;
+      color:#5a2b3a;
+      font-family:'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    /* Floating sparkle background */
+    .sparkles{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,.5) 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.6) 0 2px, transparent 3px),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,.4) 0 2px, transparent 3px),
+        radial-gradient(circle at 60% 60%, rgba(255,255,255,.5) 0 2px, transparent 3px);
+      animation: twinkle 6s linear infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:.8; transform:translateY(0)}
+      50%{opacity:.4; transform:translateY(-8px)}
+    }
+
+    .container{
+      max-width:980px; margin:0 auto; padding:32px; position:relative; z-index:1;
+    }
+
+    .card{
+      background: linear-gradient(180deg, #fff, var(--pink-1));
+      border: 2px dashed var(--pink-3);
+      border-radius:28px;
+      box-shadow: var(--shadow);
+      padding:32px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .ribbon{
+      position:absolute; top:16px; right:-60px;
+      background: linear-gradient(90deg, var(--pink-4), var(--rose));
+      color:var(--white);
+      padding:10px 80px;
+      transform:rotate(20deg);
+      font-weight:700; letter-spacing:.5px;
+      text-shadow:0 2px 8px rgba(246,93,152,.45);
+    }
+
+    header{
+      text-align:center; padding:24px 16px 8px;
+    }
+    header h1{
+      font-family:'Playfair Display', serif;
+      font-size: clamp(36px, 6vw, 64px);
+      margin:0; color:#b03a6a;
+    }
+    header p{
+      margin:12px 0 0;
+      font-size: clamp(16px, 2.8vw, 20px);
+      color:#7a3b54;
+    }
+
+    /* Heart divider */
+    .divider{
+      display:flex; align-items:center; gap:12px; margin:28px 0;
+    }
+    .divider .line{
+      height:1px; background:linear-gradient(90deg, transparent, var(--pink-3), transparent);
+      flex:1;
+    }
+    .divider .heart{
+      width:22px; height:22px; position:relative;
+      transform: rotate(-45deg);
+      background: var(--pink-4);
+    }
+    .divider .heart::before, .divider .heart::after{
+      content:""; position:absolute; width:22px; height:22px; background:var(--pink-4);
+      border-radius:50%;
+    }
+    .divider .heart::before{ top:-11px; left:0 }
+    .divider .heart::after{ left:11px; top:0 }
+
+    /* Sections */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px;
+    }
+    .panel{
+      background:#fff; border-radius:22px; padding:20px; box-shadow: var(--shadow);
+      border: 1px solid #ffd0e4;
+    }
+    .panel h3{
+      margin:0 0 10px; color:#a03362; font-weight:700;
+    }
+    .panel p{ margin:0; color:#6e3a54 }
+
+    /* CTA */
+    .cta{
+      display:flex; justify-content:center; gap:14px; margin-top:26px; flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      background: linear-gradient(90deg, var(--pink-3), var(--pink-4));
+      color:#fff; padding:12px 18px; border-radius:999px;
+      font-weight:700; box-shadow: var(--shadow);
+      transition: transform .08s ease, filter .2s ease;
+    }
+    .btn.secondary{
+      background:#fff; color:#a03362; border:2px solid var(--pink-3);
+    }
+    .btn:hover{ transform:translateY(-2px); filter:brightness(1.05) }
+    .btn:active{ transform:translateY(0) }
+
+    /* Wishes list */
+    ul.wishes{
+      list-style:none; padding:0; margin:0;
+      display:grid; gap:10px;
+    }
+    ul.wishes li{
+      background: #fff6fb;
+      border: 1px solid #ffd4e8;
+      border-radius:16px; padding:12px 14px;
+    }
+
+    /* Footer */
+    footer{
+      margin:22px 0 8px; text-align:center; color:#8e5874; font-size:14px;
+    }
+
+    /* Floating balloons */
+    .balloons{
+      position:fixed; left:0; right:0; bottom:-80px; pointer-events:none; z-index:0;
+      display:flex; justify-content:space-evenly; opacity:.8;
+    }
+    .balloon{
+      width:50px; height:65px; border-radius:50% 50% 50% 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0%, var(--pink-2) 30%, var(--pink-4) 100%);
+      position:relative; animation: rise 10s linear infinite;
+    }
+    .balloon::after{
+      content:""; position:absolute; left:50%; bottom:-20px; width:2px; height:22px;
+      background:#c89; transform:translateX(-50%);
+    }
+    .balloon:nth-child(2){ animation-duration:12s; filter:hue-rotate(20deg) }
+    .balloon:nth-child(3){ animation-duration:14s; filter:hue-rotate(40deg) }
+    .balloon:nth-child(4){ animation-duration:11s; filter:hue-rotate(60deg) }
+    @keyframes rise{
+      0%{ transform: translateY(0) translateX(0) }
+      50%{ transform: translateY(-50vh) translateX(10px) }
+      100%{ transform: translateY(-100vh) translateX(-10px) }
+    }
+
+    /* Confetti canvas */
+    canvas#confetti{
+      position:fixed; inset:0; pointer-events:none; z-index:2;
+    }
+
+    /* Responsive spacing */
+    @media (max-width:560px){
+      .card{ padding:22px }
+      .ribbon{ transform:rotate(18deg) scale(.9) }
+    }
+  </style>
+</head>
+<body>
+<!-- Add this inside <body>, at the very top -->
+<div id="wall">
+  <div class="wall-content">
+    <h2>🎂 Click Me to Enter 🎂</h2>
+    <p>Tap to reveal the surprise for Lujain!</p>
+  </div>
+</div>
+
+<!-- Background music -->
+<audio id="birthdayMusic" src="My Love Mine All Mine.mp3" loop></audio>
+
+<style>
+  /* Fullscreen wall */
+  #wall {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff9ec2, #ffc7de);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+  }
+  #wall .wall-content {
+    text-align: center;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    background: rgba(255, 121, 171, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+  #wall h2 {
+    margin: 0 0 10px;
+    font-size: 2em;
+  }
+</style>
+
+<script>
+  const wall = document.getElementById('wall');
+  const music = document.getElementById('birthdayMusic');
+
+  wall.addEventListener('click', () => {
+    wall.style.display = 'none';   // Hide the wall
+    music.play();                  // Play music
+  });
+</script>
+
+  <div class="sparkles"></div>
+  <canvas id="confetti"></canvas>
+
+  <div class="balloons" aria-hidden="true">
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+  </div>
+
+  <main class="container">
+    <div class="card">
+      <div class="ribbon">Birthday Queen</div>
+
+      <header>
+        <h1>Happy Birthday, Lujain! 🎉💖</h1>
+        <p>نحتفل اليوم بتألقك ولطفك والسحر الذي تجلبيه لكل من حولك.</p>
+      </header>
+
+      <div class="divider">
+        <div class="line"></div>
+        <div class="heart" aria-hidden="true"></div>
+        <div class="line"></div>
+      </div>
+
+      <section class="grid">
+        <div class="panel">
+          <h3>رسالة لك</h3>
+          <p> انفصالنا ما يعني خراب الدنيا, انا اتمنى فعلا انك تمري بي ايام وردية جميلة مثل شفايفك و طرية مثل خدودك اتمنى تنتبهي لنفسك كثير منيييح </p>
+        </div>
+
+        <div class="panel">
+          <h3>لحظات جميلة</h3>
+          <ul class="wishes">
+            <li><strong>الضحكات:</strong> لحظات صغيرة تتحول إلى ذكريات مفضلة.</li>
+            <li><strong>المغامرات:</strong> مكان جديد, حضن دافئ, جمال خيالي</li>
+            <li><strong>حب:</strong> عوضتيني  عن اهلي الي تركوني و اصحابي الي ماتو.</li>
+            <li><strong>ايجابياتك:</strong> حبك الكبير و النادر و تشبثك بالناس</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <div class="cta">
+        <button class="btn" id="confettiBtn">Throw confetti ✨</button>
+        <button class="btn secondary" id="wishBtn">Open surprise 💌</button>
+      </div>
+    </div>
+
+    <footer>Made with love for Lujain — today and always. Raid.</footer>
+  </main>
+
+  <script>
+    // Confetti (simple, lightweight)
+    (() => {
+      const c = document.getElementById('confetti');
+      const ctx = c.getContext('2d');
+      let pieces = [];
+      let active = false;
+
+      function resize(){
+        c.width = window.innerWidth;
+        c.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      const colors = ['#ff79ab','#ff9ec2','#ffc7de','#ffffff','#f65d98'];
+
+      function createPiece(){
+        return {
+          x: Math.random()*c.width,
+          y: -20,
+          size: 6 + Math.random()*8,
+          speed: 1 + Math.random()*3,
+          rotation: Math.random()*360,
+          rotSpeed: -3 + Math.random()*6,
+          color: colors[Math.floor(Math.random()*colors.length)],
+          shape: Math.random() > 0.5 ? 'rect' : 'circle'
+        };
+      }
+
+      function burst(n=160){
+        active = true;
+        for(let i=0;i<n;i++) pieces.push(createPiece());
+        setTimeout(() => { active = false; }, 1800);
+      }
+
+      function draw(){
+        ctx.clearRect(0,0,c.width,c.height);
+        pieces.forEach(p => {
+          p.y += p.speed;
+          p.rotation += p.rotSpeed;
+          // wind sway
+          p.x += Math.sin(p.y/40) * 0.8;
+
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation * Math.PI/180);
+          ctx.fillStyle = p.color;
+
+          if(p.shape === 'rect'){
+            ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size*0.6);
+          }else{
+            ctx.beginPath();
+            ctx.arc(0,0,p.size/2,0,Math.PI*2);
+            ctx.fill();
+          }
+          ctx.restore();
+        });
+        // remove off-screen
+        pieces = pieces.filter(p => p.y < c.height + 30);
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+
+      document.getElementById('confettiBtn').addEventListener('click', () => burst());
+
+      // Sweet modal surprise
+      const wishBtn = document.getElementById('wishBtn');
+
+      // Create modal on the fly
+      const modal = document.createElement('div');
+      Object.assign(modal.style, {
+        position:'fixed', inset:'0', display:'none', placeItems:'center',
+        background:'rgba(255, 150, 190, 0.25)', zIndex:'3',
+        backdropFilter:'blur(4px)'
+      });
+
+      const box = document.createElement('div');
+      Object.assign(box.style, {
+        background:'#fff', border:'2px solid #ffd0e4', borderRadius:'22px',
+        boxShadow:'0 12px 28px rgba(246,93,152,.25)', maxWidth:'520px',
+        padding:'22px', margin:'16px'
+      });
+
+      const title = document.createElement('h3');
+      title.textContent = 'A birthday note for you, Lujain';
+      title.style.color = '#a03362'; title.style.margin = '0 0 8px';
+
+      const text = document.createElement('p');
+      text.innerHTML = 'You light rooms just by being yourself. Keep choosing the things that feel like you. The world is softer when you smile.';
+
+      const close = document.createElement('button');
+      close.textContent = 'Close ✿';
+      close.className = 'btn secondary';
+      close.style.marginTop = '12px';
+
+      box.appendChild(title);
+      box.appendChild(text);
+      box.appendChild(close);
+      modal.appendChild(box);
+      document.body.appendChild(modal);
+
+      wishBtn.addEventListener('click', () => { modal.style.display = 'grid'; burst(200); });
+      close.addEventListener('click', () => { modal.style.display = 'none'; });
+      modal.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+    })();
+  </script>
+</body>
+</html>
